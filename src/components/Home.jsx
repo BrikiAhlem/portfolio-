@@ -64,14 +64,16 @@ useEffect(() => {
 const fixedEmojis = [
 
   { emoji: '⚛️', top: '25%', left: '85%' },
-  { emoji: '⚛️', top: '40%', left: '12%' },
+  { emoji: '❤️', top: '40%', left: '12%' },
   { emoji: '🚀', top: '55%', left: '88%' },
   { emoji: '☕', top: '70%', left: '15%' },
   { emoji: '🔥', top: '80%', left: '82%' },
 
-{ emoji: '🐤', top: '45%', left: '70%' },
+  { emoji: '🐤', top: '45%', left: '70%' },
 
 ];
+// just under fixedEmojis
+
 
   /* floating code snippets */
   const codeLines = [
@@ -115,6 +117,7 @@ const fixedEmojis = [
     {emoji}
   </motion.div>
 ))}
+
 
         {/* floating code */}
         <div style={s.codeCol}>

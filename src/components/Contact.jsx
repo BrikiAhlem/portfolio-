@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send ,Github } from 'lucide-react';
 import { toast, Toaster } from 'react-hot-toast';
 
 const Contact = () => {
@@ -57,9 +57,27 @@ const Contact = () => {
               </div>
               <div>
                 <p style={styles.label}>Email</p>
-                <p style={styles.value}>ahlem@example.com</p>
+                <p style={styles.value}> ahlembriki4@gmail.com </p>
               </div>
-            </div>
+            </div>  
+            <div style={styles.infoItem}>
+      <div style={styles.iconWrapper}>
+        <Github size={20} />
+      </div>
+      <div>
+        <p style={styles.label}>GitHub</p>
+        <p style={styles.value}>
+          <a 
+            href="https://github.com/BrikiAhlem" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ color: 'inherit', textDecoration: 'none' }}
+          >
+            github.com/BrikiAhlem
+          </a>
+        </p>
+      </div>
+    </div>
             
             <div style={styles.infoItem}>
               <div style={styles.iconWrapper}>
@@ -67,7 +85,7 @@ const Contact = () => {
               </div>
               <div>
                 <p style={styles.label}>Téléphone</p>
-                <p style={styles.value}>+33 6 12 34 56 78</p>
+                <p style={styles.value}>+216 93416030 </p> 
               </div>
             </div>
             
@@ -77,7 +95,7 @@ const Contact = () => {
               </div>
               <div>
                 <p style={styles.label}>Localisation</p>
-                <p style={styles.value}>Paris, France</p>
+                <p style={styles.value}> kairouan MenzelMhiri </p>
               </div>
             </div>
           </div>
