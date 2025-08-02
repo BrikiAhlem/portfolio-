@@ -1,56 +1,72 @@
-import React from 'react';
-import { Globe } from 'lucide-react';
+// Navbar.jsx
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Coffee, Globe } from 'lucide-react';
 
-const Navbar = ({ currentPage, setCurrentPage }) => {
+const Navbar = () => {
   const navLinks = [
     { id: 'home', label: 'Accueil' },
     { id: 'services', label: 'Services' },
     { id: 'technologies', label: 'Tech' },
     { id: 'portfolio', label: 'Projets' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'planning', label: 'Planning' },
+    { id: 'contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (id) => {
-    setCurrentPage(id);
+  const [active, setActive] = useState('home');
 
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 50);
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    el
+      ? el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      : window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActive(id);
   };
 
   return (
-    <nav style={styles.navbar}>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      style={styles.navbar}
+    >
       <div style={styles.inner}>
-        <div style={styles.logo} onClick={() => scrollToSection('home')}>
+        {/* Logo */}
+        <motion.div
+          style={styles.logo}
+          onClick={() => scrollToSection('home')}
+          whileHover={{ scale: 1.05 }}
+        >
           BA<span style={styles.dot}>.</span>
-        </div>
+        </motion.div>
 
+        {/* Links */}
         <div style={styles.links}>
-          {navLinks.map(link => (
-            <button
-              key={link.id}
+          {navLinks.map(({ id, label }) => (
+            <motion.button
+              key={id}
               style={{
                 ...styles.link,
-                ...(currentPage === link.id ? styles.active : {})
+                ...(active === id ? styles.active : {}),
               }}
-              onClick={() => scrollToSection(link.id)}
+              onClick={() => scrollToSection(id)}
+              whileHover={{ scale: 1.1 }}
             >
-              {link.label}
-            </button>
+              {label}
+            </motion.button>
           ))}
         </div>
 
-        <div style={styles.lang}>
-          <Globe size={16} />
-          <span style={styles.langLabel}>FR</span>
-        </div>
+        {/* Dev + Coffee switch */}
+        <motion.div
+          style={styles.devBox}
+          whileHover={{ scale: 1.05 }}
+          onClick={() => alert('Switch to EN (mock)')}
+        >
+          <Coffee size={16} color="#ff3399" />
+          <span style={styles.devLabel}>Dev</span>
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
@@ -61,46 +77,53 @@ const styles = {
     left: 0,
     right: 0,
     zIndex: 1000,
-    padding: '20px 40px',
-    background: 'rgba(10,12,20,.6)',
-    backdropFilter: 'blur(10px)',
-    borderBottom: '1px solid rgba(255,255,255,.05)'
+    padding: '18px 40px',
+    background: 'rgba(10,12,20,.35)',
+    backdropFilter: 'blur(12px)',
+    borderBottom: '1px solid rgba(255,255,255,.08)',
+    boxShadow: '0 0 20px rgba(255,51,153,.15)',
   },
   inner: {
     maxWidth: 1200,
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   logo: {
-    fontSize: '1.4rem',
-    fontWeight: 700,
+    fontSize: '1.5rem',
+    fontWeight: 800,
     background: 'linear-gradient(to right,#ff3399,#9933ff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
-  dot: { color: '#ff3399' },
+  dot: { color: '#ff3399', marginLeft: 2 },
   links: { display: 'flex', gap: 32 },
   link: {
-    color: 'rgba(255,255,255,.65)',
+    color: 'rgba(255,255,255,.7)',
     fontSize: '.9rem',
-    letterSpacing: '.5px',
     background: 'none',
     border: 'none',
     cursor: 'pointer',
-    transition: 'color .25s'
+    transition: 'all .3s ease',
+    position: 'relative',
   },
-  active: { color: '#ff3399', fontWeight: 600 },
-  lang: {
+  active: {
+    color: '#ff3399',
+    fontWeight: 600,
+    textShadow: '0 0 8px #ff3399',
+  },
+  devBox: {
     display: 'flex',
     alignItems: 'center',
     gap: 6,
-    color: 'rgba(255,255,255,.5)',
-    fontSize: '.8rem'
+    padding: '6px 12px',
+    border: '1px solid rgba(255,51,153,.3)',
+    borderRadius: '9999px',
+    cursor: 'pointer',
   },
-  langLabel: { color: 'white', fontWeight: 500 }
+  devLabel: { color: '#fff', fontSize: '.8rem', fontWeight: 500 },
 };
 
 export default Navbar;

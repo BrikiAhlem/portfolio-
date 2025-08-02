@@ -2,90 +2,72 @@ import React from 'react';
 
 const Services = () => {
   const serviceList = [
-    {
-      title: 'Responsive Web Design',
-      desc: 'Pixel-perfect layouts that adapt to every screen size.',
-      icon: '📱'
-    },
-    {
-      title: 'React SPA / PWA',
-      desc: 'Lightning-fast single-page or progressive web apps.',
-      icon: '⚛️'
-    },
-    {
-      title: 'API Integration',
-      desc: 'Seamless connection to REST / GraphQL backends.',
-      icon: '🔗'
-    },
-    {
-      title: 'Performance & SEO',
-      desc: 'Core Web Vitals tuned for speed and discoverability.',
-      icon: '🚀'
-    },
-    {
-      title: 'UI / UX Design',
-      desc: 'Intuitive interfaces with Figma prototypes.',
-      icon: '💡'
-    },
-    {
-      title: 'E-commerce Sites',
-      desc: 'Headless Shopify / Stripe stores that convert.',
-      icon: '🛒'
-    }
+    { title: 'Design Web Responsive', desc: 'Layouts pixel-perfect, adaptatifs.', icon: '📱' },
+    { title: 'SPA / PWA React', desc: 'Apps ultra-rapides & offline-ready.', icon: '⚛️' },
+    { title: 'Intégration d’API', desc: 'Connexion REST / GraphQL.', icon: '🔗' },
+    { title: 'Performance & SEO', desc: 'Core Web Vitals optimisés.', icon: '🚀' },
+    { title: 'UI / UX Design', desc: 'Interfaces intuitives Figma.', icon: '💡' },
+    { title: 'Sites E-commerce', desc: 'Boutiques Headless Shopify.', icon: '🛒' },
+    { title: 'Audit & Refonte', desc: 'Modernisation de sites existants.', icon: '🔍' },
+    { title: 'Applications Internes', desc: 'Outils métiers sur mesure.', icon: '🔧' },
+    { title: 'Maintenance & Support', desc: 'Veille & assistance continue.', icon: '🛠️' }
   ];
 
   return (
-    <div style={styles.pageHeader}>
-      <h1 style={styles.pageTitle}>SERVICES</h1>
-      <p style={styles.pageDescription}>
-        Ce que je peux créer pour vous — du concept au déploiement.
-      </p>
+    <>
+      {/* ➊ petite feuille CSS inline pour le :hover */}
+      <style>{`
+        .serviceCard {
+          position: relative;
+          background: rgba(255,255,255,.05);
+          padding: 20px 12px;
+          border-radius: 8px;
+          text-align: center;
+          border: 1px solid rgba(255,255,255,.1);
+          cursor: pointer;
+          transition: transform .3s ease, box-shadow .3s ease, z-index .3s ease;
+          z-index: 1;
+        }
+        .serviceCard:hover {
+          transform: scale(1.10);
+          z-index: 14;
+          box-shadow: 0 0 18px 4px rgba(255,51,153,.6); /* glow rose */
+        }
+      `}</style>
 
-      <div style={styles.servicesGrid}>
-        {serviceList.map((s, i) => (
-          <div key={i} style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>{s.icon}</div>
-            <h3 style={styles.serviceTitle}>{s.title}</h3>
-            <p style={styles.serviceDescription}>{s.desc}</p>
-          </div>
-        ))}
+      <div style={styles.pageHeader}>
+        <h1 style={styles.pageTitle}>SERVICES</h1>
+        <p style={styles.pageDescription}>Ce que je peux créer pour vous — du concept au déploiement.</p>
+
+        <div style={styles.servicesGrid}>
+          {serviceList.map((s, i) => (
+            <div key={i} className="serviceCard">
+              <div style={styles.serviceIcon}>{s.icon}</div>
+              <h3 style={styles.serviceTitle}>{s.title}</h3>
+              <p style={styles.serviceDescription}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-// Re-use the styles object from App.jsx
 const styles = {
-  pageHeader: { textAlign: 'center', marginBottom: 60, width: '100%' },
-  pageTitle: { fontSize: '4rem', fontWeight: 700, marginBottom: 20 },
-  pageDescription: {
-    fontSize: '1.25rem',
-    color: 'rgba(255,255,255,.7)',
-    maxWidth: 600,
-    margin: '0 auto'
-  },
+  pageHeader: { textAlign: 'center', marginBottom: 40, width: '100%' },
+  pageTitle: { fontSize: '2.5rem', fontWeight: 700, marginBottom: 12 },
+  pageDescription: { fontSize: '1rem', color: 'rgba(255,255,255,.7)', maxWidth: 480, margin: '0 auto 25px' },
   servicesGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
-    gap: 30,
-    width: '100%'
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: 15,
+    maxWidth: 1100,
+    width: '100%',
+    margin: '0 auto'
   },
-  serviceCard: {
-    background: 'rgba(255,255,255,.05)',
-    padding: 40,
-    borderRadius: 12,
-    textAlign: 'center',
-    border: '1px solid rgba(255,255,255,.1)',
-    transition: 'transform .3s ease'
-  },
-  serviceIcon: { fontSize: '3rem', marginBottom: 20 },
-  serviceTitle: {
-    fontSize: '1.5rem',
-    fontWeight: 600,
-    marginBottom: 15,
-    color: '#ff3399'
-  },
-  serviceDescription: { color: 'rgba(255,255,255,.7)', lineHeight: 1.6 }
+  serviceIcon: { fontSize: '1.8rem', marginBottom: 8 },
+  serviceTitle: { fontSize: '1rem', fontWeight: 600, marginBottom: 5, color: '#ff3399' },
+  serviceDescription: { fontSize: '.8rem', color: 'rgba(255,255,255,.7)', lineHeight: 1.35 }
 };
 
 export default Services;
