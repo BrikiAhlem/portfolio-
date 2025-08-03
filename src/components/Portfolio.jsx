@@ -68,7 +68,18 @@ const Portfolio = () => {
       category: 'web',
       demoUrl: '#',
       githubUrl: '#'
-    }
+    } ,{
+  id: 7,
+  title: 'Vente Auto Pro',
+  desc: 'Plateforme de vente de véhicules professionnels avec gestion d’annonces, planification de rendez-vous et communication entre vendeur et acheteur.',
+  tech: ['React', 'Node.js', 'MongoDB', 'FullCalendar', 'Stripe'],
+  image: 'assets/vehiculepro.jpg',
+  category: 'web',
+  demoUrl: '#',
+  githubUrl: '#'
+}
+
+
   ];
 
   const categories = [
