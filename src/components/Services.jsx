@@ -55,7 +55,10 @@ const Services = () => {
 
 const styles = {
   pageHeader: { textAlign: 'center', marginBottom: 40, width: '100%' },
-  pageTitle: { fontSize: '2.5rem', fontWeight: 700, marginBottom: 12 },
+  pageTitle: {  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+    fontWeight: 600,
+    marginBottom: '15px',
+    color: '#fff' },
   pageDescription: { fontSize: '1rem', color: 'rgba(255,255,255,.7)', maxWidth: 480, margin: '0 auto 25px' },
   servicesGrid: {
     display: 'grid',

@@ -103,9 +103,10 @@ const styles = {
     top:'-70px'
   },
   title: {
-    fontSize: '2.8rem',
-    fontWeight: 700,
-    marginBottom: 12,
+   fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+    fontWeight: 600,
+    marginBottom: '15px',
+    color: '#fff'
   },
   subtitle: {
     fontSize: '1.1rem',
