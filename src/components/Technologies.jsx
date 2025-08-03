@@ -4,8 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 const Technologies = () => {
   /*  (no change)  */
  const front = [
-  { name: 'React', level: 92, tip: 'React : je le maîtrise et j’ai déjà livré plusieurs projets.' },
-  { name: 'Next.js', level: 90, tip: 'Next.js : simple, rapide, très proche de React, j’adore.' },
+  { name: 'React', level: 92, tip: 'React : je le maîtrise et j ai déjà livré plusieurs projets.' },
+  { name: 'Next.js', level: 90, tip: 'Next.js : simple, rapide, très proche de React, j adore.' },
   { name: 'TypeScript', level: 88, tip: 'TypeScript : sécurité et auto-complétion au top.' },
   { name: 'TailwindCSS', level: 85, tip: 'Tailwind : je code 2× plus vite.' },
   { name: 'Framer Motion', level: 80, tip: 'Framer Motion : micro-interactions fluides.' }
@@ -14,7 +14,7 @@ const Technologies = () => {
 const back = [
   { name: 'Node.js', level: 90, tip: 'Node.js : mon environnement back-end par défaut.' },
   { name: 'Express', level: 88, tip: 'Express : léger et middleware-friendly.' },
-  { name: 'PostgreSQL', level: 83, tip: 'PostgreSQL : 6 mois en prod, je l’adore.' },
+  { name: 'PostgreSQL', level: 83, tip: 'PostgreSQL : 6 mois en prod, je ladore.' },
   { name: 'MongoDB', level: 80, tip: 'MongoDB : flexible quand le schéma bouge.' },
   { name: 'Prisma', level: 87, tip: 'Prisma : requêtes type-safe sans effort.' }
 ];
@@ -31,9 +31,8 @@ const office = [
   { name: 'Word', level: 95, tip: 'Word : docs clients et spécifications.' },
   { name: 'Excel', level: 90, tip: 'Excel : tableaux de bord et KPI.' },
   { name: 'PowerPoint', level: 93, tip: 'PowerPoint : revues sprint ultra-clean.' },
-  { name: 'Draw.io', level: 88, tip: 'Draw.io : schémas d’archi en un clic.' },
+  { name: 'Draw.io', level: 88, tip: 'Draw.io : schémas d archi en un clic.' },
   { name: 'Power AMC', level: 75, tip: 'Power AMC : Merise pour la modélisation.' },
-  { name: 'Office 365', level: 92, tip: 'Office 365 : collaboration temps réel.' },
   { name: 'Gestion projet', level: 85, tip: 'Gestion projet : du cahier des charges au déploiement.' }
 ];
   const [hovered, setHovered] = useState(null);
@@ -134,54 +133,68 @@ const SkillRow = ({ name, level, tip, hovered, setHovered }) => {
   );
 };
 
-/* -------------  (Unchanged) styles ------------- */
+/* -------------  Styles avec tailles réduites ------------- */
 const styles = {
-  pageHeader: { textAlign: 'center', marginBottom: 40, width: '100%' },
-  pageTitle: {  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+  pageHeader: { textAlign: 'center', marginBottom: 30, width: '80%'  , marginLeft: 'auto', marginRight: '150px'},
+  pageTitle: {  
+    fontSize: 'clamp(2rem, 4vw, 3rem)',
     fontWeight: 600,
-    marginBottom: '15px',
-    color: '#fff' },
-  pageDescription: { fontSize: '1rem', color: 'rgba(255,255,255,.7)', maxWidth: 480, margin: '0 auto 30px' },
+    marginBottom: '12px',
+    color: '#fff' 
+  },
+  pageDescription: { 
+    fontSize: '0.9rem', 
+    color: 'rgba(255,255,255,.7)', 
+    maxWidth: 420, 
+    margin: '0 auto 25px' 
+  },
 
-  row: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 25, marginBottom: 25 },
+  row: { 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)', 
+    gap: 20, 
+    marginBottom: 20  ,
+     justifyContent: 'center', 
+    
+  },
 
   category: {
     background: 'rgba(255,255,255,.05)',
-    padding: 20,
-    borderRadius: 10,
+    padding: 16,
+    borderRadius: 8,
     border: '1px solid rgba(255,255,255,.1)',
     position: 'relative'
   },
   categoryTitle: {
-    fontSize: '1.25rem',
+    fontSize: '1.1rem',
     fontWeight: 600,
-    marginBottom: 15,
+    marginBottom: 12,
     background: 'linear-gradient(to right,#ff3399,#9933ff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent'
   },
 
-  skillCard: { marginBottom: 12, position: 'relative' },
+  skillCard: { marginBottom: 10, position: 'relative' },
   skillLine: {
     display: 'flex',
     justifyContent: 'space-between',
-    fontSize: '.9rem',
+    fontSize: '0.85rem',
     color: '#fff'
   },
   level: { color: '#ff3399', fontWeight: 600 },
 
   barTrack: {
     position: 'relative',
-    height: 6,
+    height: 5,
     background: 'rgba(255,255,255,.15)',
-    borderRadius: 3,
+    borderRadius: 2.5,
     overflow: 'hidden',
-    marginTop: 4
+    marginTop: 3
   },
   barFill: {
     height: '100%',
     background: 'linear-gradient(90deg,#007bff,#00c6ff)',
-    borderRadius: 3,
+    borderRadius: 2.5,
     transition: 'width .6s ease'
   },
 
@@ -190,14 +203,14 @@ const styles = {
     left: 0,
     right: 0,
     top: '100%',
-    marginTop: 4,
+    marginTop: 3,
     background: '#4f4f5eff',
     color: '#fff',
-    width :'400px',
-    height:'50px',
-    fontSize: '1rem',
-    padding: '4px 8px',
-    borderRadius: 4,
+    width: '320px',
+    height: '40px',
+    fontSize: '0.85rem',
+    padding: '3px 6px',
+    borderRadius: 3,
     zIndex: 10
   }
 };
